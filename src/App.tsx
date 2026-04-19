@@ -4,7 +4,7 @@ import { Coffee, Instagram, MapPin, Clock, Star, Zap, X, Home, Info, Phone, Menu
 
 const MENU_DATA = {
   coffee: [
-    { id: 1, name: "KOPI NOT LATTE", price: "13K", best: false, desc: "Espresso double shot yang kuat dipadukan dengan susu segar yang dikukus hingga berbusa lembut, menciptakan tekstur creamy yang sempurna.", image: "https://picsum.photos/seed/coffee-latte/500/600" },
+    { id: 1, name: "KOPI NOT LATTE", price: "13K", best: false, desc: "Espresso double shot yang kuat dipadukan dengan susu segar yang dikukus hingga berbusa lembut, menciptakan tekstur creamy yang sempurna.", image: "https://drive.google.com/file/d/1_2wiIE1UZQjM_YSq38A2yERfjLPoq9jy/view?usp=sharing/500/600" },
     { id: 2, name: "KOPI NOT AREN", price: "13K", best: true, desc: "Menu andalan kami: Perpaduan espresso lokal dengan gula aren organik murni dan sentuhan sea salt yang memberikan keseimbangan rasa manis dan gurih.", image: "https://picsum.photos/seed/coffee-aren/500/600" },
     { id: 3, name: "KOPI NOT SUSU", price: "13K", best: false, desc: "Sentuhan rasa klasik yang membawa nostalgia, menggabungkan kopi hitam pekat dengan kental manis premium yang kaya rasa.", image: "https://picsum.photos/seed/coffee-milk/500/600" },
     { id: 4, name: "AMERICANO", price: "10K", best: false, desc: "Ekstraksi espresso murni yang jernih menggunakan biji kopi pilihan house roast kami, disajikan untuk kesegaran rasa kopi yang jujur.", image: "https://picsum.photos/seed/americano/500/600" },
