@@ -433,12 +433,9 @@ const Navbar = () => {
           </div>
 
           <button 
-            className="md:hidden relative z-[150] text-white p-4 -mr-4 flex items-center justify-center outline-none focus:outline-none bg-transparent touch-manipulation"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setIsMobileMenuOpen(!isMobileMenuOpen);
-            }}
+            type="button"
+            className="md:hidden relative z-[200] text-white p-4 -mr-4 flex items-center justify-center cursor-pointer pointer-events-auto select-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
           >
             {isMobileMenuOpen ? <X className="w-8 h-8 pointer-events-none" /> : <MenuIcon className="w-8 h-8 pointer-events-none" />}
