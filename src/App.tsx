@@ -4,28 +4,28 @@ import { Coffee, Instagram, MapPin, Clock, Star, Zap, X, Home, Info, Phone, Menu
 
 const MENU_DATA = {
   coffee: [
-    { id: 16, name: "KOPI NOT AREN", price: "13K", best: true, desc: "Kopi susu dengan paduan gula aren asli yang memberikan rasa manis alami dan aroma kopi yang kuat.", image: "/gambar/Kopi Not Susu.png" },
-    { id: 2, name: "KOPI SALTED CARAMEL", price: "13K", best: true, desc: "Menu andalan kami: Perpaduan espresso lokal dengan gula aren organik murni dan sentuhan sea salt yang memberikan keseimbangan rasa manis dan gurih.", image: "/gambar/Kopi Salted Caramel.png" },
-    { id: 15, name: "KOPI SEA SALT BUTTERSCOTCH", price: "15K", best: true, desc: "Kombinasi sempurna antara espresso premium, susu segar, dan sirup butterscotch dengan sentuhan sea salt yang gurih.", image: "/gambar/KOPI SEA SALT BUTTERSCOT.png" },
-    { id: 1, name: "KOPI NOT LATTE", price: "13K", best: false, desc: "Espresso double shot yang kuat dipadukan dengan susu segar yang dikukus hingga berbusa lembut, menciptakan tekstur creamy yang sempurna.", image: "/gambar/Kopi Not Latte.png" },
-    { id: 3, name: "KOPI NOT SUSU", price: "13K", best: false, desc: "Sentuhan rasa klasik yang membawa nostalgia, menggabungkan kopi hitam pekat dengan kental manis premium yang kaya rasa.", image: "/gambar/Kopi Not Susu.png" },
-    { id: 4, name: "AMERICANO", price: "10K", best: false, desc: "Ekstraksi espresso murni yang jernih menggunakan biji kopi pilihan house roast kami, disajikan untuk kesegaran rasa kopi yang jujur.", image: "/gambar/americano.png" },
-    { id: 8, name: "KOPI NOT PANCO", price: "14K", best: false, desc: "Perpaduan unik kopi dengan pandan dan kelapa yang memberikan aroma khas dan rasa yang eksotis. Sempurna untuk mencari cita rasa yang berbeda dan memorable.", image: "/gambar/Kopi Not Panco dan Pandan Coconut.jpeg" },
-    { id: 9, name: "CAPPUCCINO", price: "13K", best: false, desc: "Espresso yang dikombinasikan dengan susu steamed dan busa lembut dalam perbandingan sempurna, menghasilkan rasa yang smooth dan creamy untuk pengalaman kopi yang autentik.", image: "/gambar/Kopi Not Latte.png" },
+    { id: 16, name: "KOPI NOT AREN", price: "13K", best: true, desc: "Kopi susu dengan paduan gula aren asli yang memberikan rasa manis alami dan aroma kopi yang kuat. Diseduh menggunakan ekstraksi biji kopi House Blend (Arabica & Robusta) pilihan nusantara.", image: "/gambar/Kopi Not Susu.png" },
+    { id: 2, name: "KOPI SALTED CARAMEL", price: "13K", best: true, desc: "Menu andalan kami: Perpaduan espresso dengan gula aren organik murni dan sentuhan sea salt yang memberikan keseimbangan rasa manis dan gurih. Diekstrak dari biji kopi Arabica berkualitas tinggi.", image: "/gambar/Kopi Salted Caramel.png" },
+    { id: 15, name: "KOPI SEA SALT BUTTERSCOTCH", price: "15K", best: true, desc: "Kombinasi sempurna antara espresso premium, susu segar, dan sirup butterscotch dengan sentuhan sea salt yang gurih. Menggunakan racikan biji kopi pilihan (House Blend).", image: "/gambar/KOPI SEA SALT BUTTERSCOT.png" },
+    { id: 1, name: "KOPI NOT LATTE", price: "13K", best: false, desc: "Espresso double shot yang kuat dipadukan dengan susu segar yang dikukus hingga berbusa lembut, menciptakan tekstur creamy yang sempurna. Diseduh menggunakan biji kopi 100% Arabica.", image: "/gambar/Kopi Not Latte.png" },
+    { id: 3, name: "KOPI NOT SUSU", price: "13K", best: false, desc: "Sentuhan rasa klasik yang membawa nostalgia, menggabungkan kopi hitam pekat dengan kental manis premium yang kaya rasa. Menggunakan racikan biji kopi House Blend spesial kami.", image: "/gambar/Kopi Not Susu.png" },
+    { id: 4, name: "AMERICANO", price: "10K", best: false, desc: "Ekstraksi espresso murni yang jernih menggunakan biji kopi 100% Arabica house roast kami, disajikan untuk kesegaran rasa kopi yang jujur dengan notes rasa yang khas.", image: "/gambar/americano.png" },
+    { id: 8, name: "KOPI NOT PANCO", price: "14K", best: false, desc: "Perpaduan unik espresso (dari biji kopi House Blend premium) dengan pandan dan kelapa yang memberikan aroma khas dan rasa eksotis. Sempurna untuk mencari cita rasa yang berbeda dan memorable.", image: "/gambar/Kopi Not Panco dan Pandan Coconut.jpeg" },
+    { id: 9, name: "CAPPUCCINO", price: "13K", best: false, desc: "Espresso (diekstrak dari biji Arabica pilihan) yang dikombinasikan dengan susu steamed dan busa tebal lembut dalam perbandingan sempurna, menghasilkan rasa smooth dan creamy untuk pengalaman kopi autentik.", image: "/gambar/Kopi Not Latte.png" },
   ],
   nonCoffee: [
-    { id: 5, name: "COKELAT", price: "13K", best: false, desc: "Cokelat hitam premium pilihan yang dipadukan dengan susu segar, memberikan sensasi rasa cokelat yang mendalam, kental, dan mewah.", image: "/gambar/Cokelat.png" },
-    { id: 7, name: "RED VELVET", price: "13K", best: false, desc: "Rasa kue Red Velvet yang kaya dan manis lembut dipadukan dengan susu krimi, menghadirkan sensasi makan kue dalam setiap tegukan.", image: "/gambar/Red velvet.png" },
-    { id: 10, name: "THAI TEA", price: "13K", best: false, desc: "Seduhan daun teh asli Thailand pilihan yang disajikan dengan kental manis dan evaporasi, menciptakan rasa teh yang unik dan menyegarkan.", image: "/gambar/Thai Tea.png" },
+    { id: 5, name: "COKELAT", price: "13K", best: false, desc: "Minuman cokelat hitam premium pilihan yang dipadukan dengan susu segar full cream, memberikan sensasi rasa cokelat asli yang mendalam, kental, dan mewah tanpa perasa buatan.", image: "/gambar/Cokelat.png" },
+    { id: 7, name: "RED VELVET", price: "13K", best: false, desc: "Ekstrak rasa kue Red Velvet asli yang kaya dan manis lembut dipadukan dengan susu segar krimi, menghadirkan sensasi makan kue premium dalam setiap tegukan.", image: "/gambar/Red velvet.png" },
+    { id: 10, name: "THAI TEA", price: "13K", best: false, desc: "Seduhan daun teh hitam asli khas Thailand pilihan yang disajikan dengan takaran kental manis dan susu evaporasi yang pas, menciptakan profil rasa teh yang otentik dan menyegarkan.", image: "/gambar/Thai Tea.png" },
   ],
   matcha: [
-    { id: 6, name: "MATCHA LATTE", price: "18K", best: true, desc: "Sajian Matcha spesial kami dengan foam lembut, diolah dengan resep rahasia Not Yet Coffee untuk rasa yang tak terlupakan.", image: "/gambar/Matcha Latte.png" },
-    { id: 17, name: "MATCHA STROBERI", price: "20K", best: true, desc: "Perpaduan unik antara matcha premium dan selai stroberi segar yang memberikan rasa manis dan asam yang seimbang.", image: "/gambar/Matcha Stroberi.png" }
+    { id: 6, name: "MATCHA LATTE", price: "18K", best: true, desc: "Bubuk Matcha premium 100% asli Jepang yang disajikan dengan susu segar dan foam lembut, diolah dengan resep rahasia Not Yet Coffee untuk rasa otentik yang tak terlupakan.", image: "/gambar/Matcha Latte.png" },
+    { id: 17, name: "MATCHA STROBERI", price: "20K", best: true, desc: "Perpaduan unik antara bubuk matcha premium Jepang dan selai stroberi segar buatan sendiri (homemade) yang memberikan rasa manis dan asam yang sangat seimbang.", image: "/gambar/Matcha Stroberi.png" }
   ],
   liter: [
-    { id: 12, name: "SATU LITER MATCHA", price: "85K", best: false, desc: "Matcha premium dalam ukuran satu liter, menyajikan rasa teh hijau autentik yang kaya antioksidan dengan tekstur creamy yang memuaskan untuk berbagi atau dinikmati sepanjang hari.", image: "/gambar/satu liter.png" },
-    { id: 13, name: "SATU LITER KOPI NOT AREN", price: "75K", best: false, desc: "Kopi robusta pilihan dicampur dengan gula aren alami dalam ukuran satu liter, memberikan rasa manis alami dan aroma kopi yang kuat untuk pengalaman minum yang berbeda.", image: "/gambar/satu liter.png" },
-    { id: 14, name: "SATU LITER COKLAT", price: "75K", best: false, desc: "Cokelat premium dalam ukuran satu liter, dipadukan dengan susu segar untuk sensasi rasa cokelat yang intens dan creamy, sempurna untuk acara keluarga atau gathering.", image: "/gambar/satu liter.png" },
+    { id: 12, name: "SATU LITER MATCHA", price: "85K", best: false, desc: "Minuman satu liter dari bubuk Matcha premium asli Jepang. Menyajikan rasa teh hijau autentik yang kaya antioksidan dengan tekstur creamy yang memuaskan, sangat cocok untuk berbagi.", image: "/gambar/satu liter.png" },
+    { id: 13, name: "SATU LITER KOPI NOT AREN", price: "75K", best: false, desc: "Kopi satu liter yang diekstrak dari biji kopi Robusta kualitas terbaik, dicampur dengan gula aren murni alami. Memberikan rasa manis legit dan aroma kopi yang kuat.", image: "/gambar/satu liter.png" },
+    { id: 14, name: "SATU LITER COKLAT", price: "75K", best: false, desc: "Cokelat hitam premium asli dalam kemasan satu liter, dipadukan dengan susu segar full cream untuk sensasi rasa cokelat yang intens dan creamy. Sangat sempurna untuk acara keluarga.", image: "/gambar/satu liter.png" },
   ]
 };
 
