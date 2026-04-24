@@ -417,6 +417,13 @@ const Navbar = () => {
                 href={link.href}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.querySelector(link.href);
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="font-display font-black text-white/70 hover:text-white text-xs tracking-[0.2em] transition-colors relative group"
               >
                 {link.name}
@@ -425,14 +432,17 @@ const Navbar = () => {
             ))}
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="md:hidden text-white cursor-pointer p-2 -mr-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          <button 
+            className="md:hidden relative z-[150] text-white p-4 -mr-4 flex items-center justify-center outline-none focus:outline-none bg-transparent touch-manipulation"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+            aria-label="Toggle Menu"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
-          </motion.div>
+            {isMobileMenuOpen ? <X className="w-8 h-8 pointer-events-none" /> : <MenuIcon className="w-8 h-8 pointer-events-none" />}
+          </button>
         </div>
       </nav>
 
@@ -453,7 +463,16 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.1 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    const target = document.querySelector(link.href);
+                    if (target) {
+                      setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    }
+                  }}
                   className="font-display font-black text-white text-4xl uppercase tracking-widest flex items-center gap-4 hover:text-white/70 transition-colors"
                 >
                   <link.icon className="w-8 h-8 opacity-50" />
