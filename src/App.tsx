@@ -4,23 +4,28 @@ import { Coffee, Instagram, MapPin, Clock, Star, Zap, X, Home, Info, Phone, Menu
 
 const MENU_DATA = {
   coffee: [
-    { id: 1, name: "KOPI NOT LATTE", price: "13K", best: false, desc: "Espresso double shot yang kuat dipadukan dengan susu segar yang dikukus hingga berbusa lembut, menciptakan tekstur creamy yang sempurna.", image: "../gambar/Kopi Not Latte.png" },
-    { id: 2, name: "Kopi Salted Caramel", price: "13K", best: true, desc: "Menu andalan kami: Perpaduan espresso lokal dengan gula aren organik murni dan sentuhan sea salt yang memberikan keseimbangan rasa manis dan gurih.", image: "../gambar/Kopi Salted Caramel.png" },
-    { id: 3, name: "KOPI NOT SUSU", price: "13K", best: false, desc: "Sentuhan rasa klasik yang membawa nostalgia, menggabungkan kopi hitam pekat dengan kental manis premium yang kaya rasa.", image: "../gambar/Kopi Not Susu.png" },
-    { id: 4, name: "AMERICANO", price: "10K", best: false, desc: "Ekstraksi espresso murni yang jernih menggunakan biji kopi pilihan house roast kami, disajikan untuk kesegaran rasa kopi yang jujur.", image: "../gambar/americano.png" },
-    { id: 8, name: "KOPI NOT PANCO", price: "14K", best: false, desc: "Perpaduan unik kopi dengan pandan dan kelapa yang memberikan aroma khas dan rasa yang eksotis. Sempurna untuk mencari cita rasa yang berbeda dan memorable.", image: "../gambar/Kopi Not Panco dan Pandan Coconut.jpeg" },
-    { id: 9, name: "CAPPUCCINO", price: "13K", best: false, desc: "Espresso yang dikombinasikan dengan susu steamed dan busa lembut dalam perbandingan sempurna, menghasilkan rasa yang smooth dan creamy untuk pengalaman kopi yang autentik.", image: "../gambar/Kopi Not Latte.png" },
+    { id: 16, name: "KOPI NOT AREN", price: "13K", best: true, desc: "Kopi susu dengan paduan gula aren asli yang memberikan rasa manis alami dan aroma kopi yang kuat.", image: "/gambar/Kopi Not Susu.png" },
+    { id: 2, name: "KOPI SALTED CARAMEL", price: "13K", best: true, desc: "Menu andalan kami: Perpaduan espresso lokal dengan gula aren organik murni dan sentuhan sea salt yang memberikan keseimbangan rasa manis dan gurih.", image: "/gambar/Kopi Salted Caramel.png" },
+    { id: 15, name: "KOPI SEA SALT BUTTERSCOTCH", price: "15K", best: true, desc: "Kombinasi sempurna antara espresso premium, susu segar, dan sirup butterscotch dengan sentuhan sea salt yang gurih.", image: "/gambar/KOPI SEA SALT BUTTERSCOT.png" },
+    { id: 1, name: "KOPI NOT LATTE", price: "13K", best: false, desc: "Espresso double shot yang kuat dipadukan dengan susu segar yang dikukus hingga berbusa lembut, menciptakan tekstur creamy yang sempurna.", image: "/gambar/Kopi Not Latte.png" },
+    { id: 3, name: "KOPI NOT SUSU", price: "13K", best: false, desc: "Sentuhan rasa klasik yang membawa nostalgia, menggabungkan kopi hitam pekat dengan kental manis premium yang kaya rasa.", image: "/gambar/Kopi Not Susu.png" },
+    { id: 4, name: "AMERICANO", price: "10K", best: false, desc: "Ekstraksi espresso murni yang jernih menggunakan biji kopi pilihan house roast kami, disajikan untuk kesegaran rasa kopi yang jujur.", image: "/gambar/americano.png" },
+    { id: 8, name: "KOPI NOT PANCO", price: "14K", best: false, desc: "Perpaduan unik kopi dengan pandan dan kelapa yang memberikan aroma khas dan rasa yang eksotis. Sempurna untuk mencari cita rasa yang berbeda dan memorable.", image: "/gambar/Kopi Not Panco dan Pandan Coconut.jpeg" },
+    { id: 9, name: "CAPPUCCINO", price: "13K", best: false, desc: "Espresso yang dikombinasikan dengan susu steamed dan busa lembut dalam perbandingan sempurna, menghasilkan rasa yang smooth dan creamy untuk pengalaman kopi yang autentik.", image: "/gambar/Kopi Not Latte.png" },
   ],
   nonCoffee: [
-    { id: 5, name: "COKELAT", price: "13K", best: false, desc: "Cokelat hitam premium pilihan yang dipadukan dengan susu segar, memberikan sensasi rasa cokelat yang mendalam, kental, dan mewah.", image: "../gambar/Cokelat.png" },
-    { id: 6, name: "MATCHA", price: "18K", best: true, desc: "Sajian Matcha spesial kami dengan foam lembut, diolah dengan resep rahasia Not Yet Coffee untuk rasa yang tak terlupakan.", image: "../gambar/Matcha Latte.png" },
-    { id: 7, name: "RED VELVET", price: "13K", best: false, desc: "Rasa kue Red Velvet yang kaya dan manis lembut dipadukan dengan susu krimi, menghadirkan sensasi makan kue dalam setiap tegukan.", image: "../gambar/Red velvet.png" },
-    { id: 10, name: "THAI TEA", price: "13K", best: false, desc: "Seduhan daun teh asli Thailand pilihan yang disajikan dengan kental manis dan evaporasi, menciptakan rasa teh yang unik dan menyegarkan.", image: "../gambar/Thai Tea.png" },
+    { id: 5, name: "COKELAT", price: "13K", best: false, desc: "Cokelat hitam premium pilihan yang dipadukan dengan susu segar, memberikan sensasi rasa cokelat yang mendalam, kental, dan mewah.", image: "/gambar/Cokelat.png" },
+    { id: 7, name: "RED VELVET", price: "13K", best: false, desc: "Rasa kue Red Velvet yang kaya dan manis lembut dipadukan dengan susu krimi, menghadirkan sensasi makan kue dalam setiap tegukan.", image: "/gambar/Red velvet.png" },
+    { id: 10, name: "THAI TEA", price: "13K", best: false, desc: "Seduhan daun teh asli Thailand pilihan yang disajikan dengan kental manis dan evaporasi, menciptakan rasa teh yang unik dan menyegarkan.", image: "/gambar/Thai Tea.png" },
+  ],
+  matcha: [
+    { id: 6, name: "MATCHA LATTE", price: "18K", best: true, desc: "Sajian Matcha spesial kami dengan foam lembut, diolah dengan resep rahasia Not Yet Coffee untuk rasa yang tak terlupakan.", image: "/gambar/Matcha Latte.png" },
+    { id: 17, name: "MATCHA STROBERI", price: "20K", best: true, desc: "Perpaduan unik antara matcha premium dan selai stroberi segar yang memberikan rasa manis dan asam yang seimbang.", image: "/gambar/Matcha Stroberi.png" }
   ],
   liter: [
-    { id: 12, name: "SATU LITER MATCHA", price: "85K", best: false, desc: "Matcha premium dalam ukuran satu liter, menyajikan rasa teh hijau autentik yang kaya antioksidan dengan tekstur creamy yang memuaskan untuk berbagi atau dinikmati sepanjang hari.", image: "../gambar/satu liter.png" },
-    { id: 13, name: "SATU LITER KOPI NOT AREN", price: "75K", best: false, desc: "Kopi robusta pilihan dicampur dengan gula aren alami dalam ukuran satu liter, memberikan rasa manis alami dan aroma kopi yang kuat untuk pengalaman minum yang berbeda.", image: "../gambar/satu liter.png" },
-    { id: 14, name: "SATU LITER COKLAT", price: "75K", best: false, desc: "Cokelat premium dalam ukuran satu liter, dipadukan dengan susu segar untuk sensasi rasa cokelat yang intens dan creamy, sempurna untuk acara keluarga atau gathering.", image: "../gambar/satu liter.png" },
+    { id: 12, name: "SATU LITER MATCHA", price: "85K", best: false, desc: "Matcha premium dalam ukuran satu liter, menyajikan rasa teh hijau autentik yang kaya antioksidan dengan tekstur creamy yang memuaskan untuk berbagi atau dinikmati sepanjang hari.", image: "/gambar/satu liter.png" },
+    { id: 13, name: "SATU LITER KOPI NOT AREN", price: "75K", best: false, desc: "Kopi robusta pilihan dicampur dengan gula aren alami dalam ukuran satu liter, memberikan rasa manis alami dan aroma kopi yang kuat untuk pengalaman minum yang berbeda.", image: "/gambar/satu liter.png" },
+    { id: 14, name: "SATU LITER COKLAT", price: "75K", best: false, desc: "Cokelat premium dalam ukuran satu liter, dipadukan dengan susu segar untuk sensasi rasa cokelat yang intens dan creamy, sempurna untuk acara keluarga atau gathering.", image: "/gambar/satu liter.png" },
   ]
 };
 
@@ -365,6 +370,7 @@ const InfoParagraph = () => (
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -382,48 +388,83 @@ const Navbar = () => {
   ];
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        isScrolled ? "py-4 bg-brand-red/80 backdrop-blur-xl border-b border-white/10 shadow-2xl" : "py-8 bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2 group cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        >
-          <div className="bg-white p-2 rounded-lg rotate-[-5deg] group-hover:rotate-0 transition-transform">
-             <span className="font-display font-black text-brand-red text-xl leading-none">NY</span>
+    <>
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-[120] transition-all duration-500 ${
+          isScrolled ? "py-4 bg-brand-red/80 backdrop-blur-xl border-b border-white/10 shadow-2xl" : "py-8 bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-2 group cursor-pointer"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            <div className="bg-white p-2 rounded-lg rotate-[-5deg] group-hover:rotate-0 transition-transform">
+               <span className="font-display font-black text-brand-red text-xl leading-none">NY</span>
+            </div>
+            <span className="font-display font-black text-white text-lg tracking-tighter">NOTYET COFFEE</span>
+          </motion.div>
+
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="font-display font-black text-white/70 hover:text-white text-xs tracking-[0.2em] transition-colors relative group"
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full" />
+              </motion.a>
+            ))}
           </div>
-          <span className="font-display font-black text-white text-lg tracking-tighter">NOTYET COFFEE</span>
-        </motion.div>
 
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="font-display font-black text-white/70 hover:text-white text-xs tracking-[0.2em] transition-colors relative group"
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full" />
-            </motion.a>
-          ))}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="md:hidden text-white cursor-pointer p-2 -mr-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+          </motion.div>
         </div>
+      </nav>
 
-        <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="md:hidden text-white"
-        >
-          <MenuIcon className="w-6 h-6" />
-        </motion.div>
-      </div>
-    </nav>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+            className="fixed inset-0 z-[110] bg-brand-red flex flex-col items-center justify-center"
+          >
+            <div className="flex flex-col gap-10 items-center">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.1 }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="font-display font-black text-white text-4xl uppercase tracking-widest flex items-center gap-4 hover:text-white/70 transition-colors"
+                >
+                  <link.icon className="w-8 h-8 opacity-50" />
+                  {link.name}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
@@ -554,7 +595,7 @@ export default function App() {
         </section>
 
         {/* Coffee Section */}
-        <section className="mb-24 scroll-mt-24">
+        <section id="menu" className="mb-24 scroll-mt-24">
           <div className="relative mb-16 text-center">
             <h2 className="font-display font-black text-6xl md:text-8xl tracking-tight text-white block">
               COFFEE SERIES
@@ -564,6 +605,22 @@ export default function App() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12">
             {MENU_DATA.coffee.map((item) => (
+              <MenuItem key={item.id} item={item} onClick={() => setSelectedItem(item)} />
+            ))}
+          </div>
+        </section>
+
+        {/* Matcha Section */}
+        <section className="mb-32">
+          <div className="relative mb-16 text-center">
+            <h2 className="font-display font-black text-6xl md:text-8xl tracking-tight text-white block">
+              MATCHA SERIES
+            </h2>
+            <div className="h-4 bg-white/10 w-[80%] mx-auto -mt-6 rounded-full blur-xl" />
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12">
+            {MENU_DATA.matcha.map((item) => (
               <MenuItem key={item.id} item={item} onClick={() => setSelectedItem(item)} />
             ))}
           </div>
@@ -634,6 +691,22 @@ export default function App() {
                 <div>
                   <h4 className="font-black text-white text-sm tracking-widest uppercase">@notyetcoffee</h4>
                   <p className="text-xs text-white/50 font-bold uppercase group-hover:text-white transition-colors">Follow us for updates</p>
+                </div>
+              </a>
+              <a 
+                href="https://www.tiktok.com/@not.yet.coffee?_r=1&_t=ZS-95lPGMnqpT6" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center md:justify-start gap-4 group"
+              >
+                <div className="bg-white/10 p-2 rounded-lg group-hover:bg-gradient-to-br group-hover:from-[#00f2fe] group-hover:via-[#111111] group-hover:to-[#fe0979] transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-white">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.36-1.37 1.15-3.1 1.83-4.91 2.01-1.64.16-3.33-.08-4.81-.88-2.61-1.4-4.22-4.14-4.27-7.14-.04-2.52 1.05-5.01 2.97-6.72 1.58-1.4 3.66-2.18 5.76-2.29v4.06c-1.44.02-2.88.54-3.95 1.51-.95.86-1.48 2.15-1.48 3.46.03 1.48.65 2.91 1.73 3.91 1.03.96 2.47 1.45 3.89 1.34 1.48-.12 2.87-.84 3.79-2 1.01-1.28 1.44-2.91 1.41-4.52V0h4.15z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-black text-white text-sm tracking-widest uppercase">@not.yet.coffee</h4>
+                  <p className="text-xs text-white/50 font-bold uppercase group-hover:text-white transition-colors">Watch our videos</p>
                 </div>
               </a>
               <div className="flex items-start justify-center md:justify-start gap-4">
