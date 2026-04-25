@@ -525,23 +525,43 @@ const GoogleMap = () => (
   </section>
 );
 
-const WhatsAppButton = () => (
-  <motion.a
-    href="https://wa.me/628818161616"
-    target="_blank"
-    rel="noopener noreferrer"
-    initial={{ scale: 0, opacity: 0 }}
-    animate={{ scale: 1, opacity: 1 }}
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }}
-    className="fixed bottom-8 right-8 z-[150] bg-[#25D366] text-white p-5 rounded-full shadow-[0_20px_50px_rgba(37,211,102,0.4)] flex items-center justify-center group"
-    aria-label="Chat on WhatsApp"
-  >
-    <MessageCircle className="w-8 h-8 fill-white/20" />
-    <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 font-display font-black text-xs uppercase tracking-widest whitespace-nowrap">
-      Chat With Us
-    </span>
-  </motion.a>
+const FloatingSocialButtons = () => (
+  <div className="fixed bottom-8 right-8 z-[150] flex flex-col gap-4">
+    <motion.a
+      href="https://www.tiktok.com/@not.yet.coffee?_r=1&_t=ZS-95lPGMnqpT6"
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      className="bg-[#111111] text-white p-5 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.4)] flex items-center justify-center group"
+      aria-label="Follow on TikTok"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity">
+        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.36-1.37 1.15-3.1 1.83-4.91 2.01-1.64.16-3.33-.08-4.81-.88-2.61-1.4-4.22-4.14-4.27-7.14-.04-2.52 1.05-5.01 2.97-6.72 1.58-1.4 3.66-2.18 5.76-2.29v4.06c-1.44.02-2.88.54-3.95 1.51-.95.86-1.48 2.15-1.48 3.46.03 1.48.65 2.91 1.73 3.91 1.03.96 2.47 1.45 3.89 1.34 1.48-.12 2.87-.84 3.79-2 1.01-1.28 1.44-2.91 1.41-4.52V0h4.15z"/>
+      </svg>
+      <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 font-display font-black text-xs uppercase tracking-widest whitespace-nowrap">
+        Follow Us
+      </span>
+    </motion.a>
+    <motion.a
+      href="https://wa.me/628818161616"
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      className="bg-[#25D366] text-white p-5 rounded-full shadow-[0_20px_50px_rgba(37,211,102,0.4)] flex items-center justify-center group"
+      aria-label="Chat on WhatsApp"
+    >
+      <MessageCircle className="w-8 h-8 fill-white/20" />
+      <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 font-display font-black text-xs uppercase tracking-widest whitespace-nowrap">
+        Chat With Us
+      </span>
+    </motion.a>
+  </div>
 );
 
 export default function App() {
@@ -576,7 +596,7 @@ export default function App() {
   return (
     <div id="home" className="min-h-screen bg-brand-red pb-20 selection:bg-white selection:text-brand-red relative">
       <Navbar />
-      <WhatsAppButton />
+      <FloatingSocialButtons />
       <AnimatePresence>
         {selectedItem && (
           <MenuModal item={selectedItem} onClose={() => setSelectedItem(null)} />
