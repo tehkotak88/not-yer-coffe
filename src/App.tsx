@@ -5,20 +5,20 @@ import { Coffee, Instagram, MapPin, Clock, Star, Zap, X, Home, Info, Phone, Menu
 const MENU_DATA = {
   coffee: [
     { id: 16, name: "KOPI NOT AREN", price: "13K", best: true, desc: "Kopi susu dengan paduan gula aren asli yang memberikan rasa manis alami dan aroma kopi yang kuat. Diseduh menggunakan ekstraksi biji kopi House Blend (Arabica & Robusta) pilihan nusantara.", image: "/gambar/Kopi Not Susu.png" },
-    { id: 2, name: "KOPI SALTED CARAMEL", price: "13K", best: true, desc: "Menu andalan kami: Perpaduan espresso dengan gula aren organik murni dan sentuhan sea salt yang memberikan keseimbangan rasa manis dan gurih. Diekstrak dari biji kopi Arabica berkualitas tinggi.", image: "/gambar/Kopi Salted Caramel.png" },
-    { id: 15, name: "KOPI SEA SALT BUTTERSCOTCH", price: "15K", best: true, desc: "Kombinasi sempurna antara espresso premium, susu segar, dan sirup butterscotch dengan sentuhan sea salt yang gurih. Menggunakan racikan biji kopi pilihan (House Blend).", image: "/gambar/KOPI SEA SALT BUTTERSCOT.png" },
-    { id: 1, name: "KOPI NOT LATTE", price: "13K", best: false, desc: "Espresso double shot yang kuat dipadukan dengan susu segar yang dikukus hingga berbusa lembut, menciptakan tekstur creamy yang sempurna. Diseduh menggunakan biji kopi 100% Arabica.", image: "/gambar/Kopi Not Latte.png" },
-    { id: 3, name: "KOPI NOT SUSU", price: "13K", best: false, desc: "Sentuhan rasa klasik yang membawa nostalgia, menggabungkan kopi hitam pekat dengan kental manis premium yang kaya rasa. Menggunakan racikan biji kopi House Blend spesial kami.", image: "/gambar/Kopi Not Susu.png" },
-    { id: 4, name: "AMERICANO", price: "10K", best: false, desc: "Ekstraksi espresso murni yang jernih menggunakan biji kopi 100% Arabica house roast kami, disajikan untuk kesegaran rasa kopi yang jujur dengan notes rasa yang khas.", image: "/gambar/americano.png" },
-    { id: 8, name: "KOPI NOT PANCO", price: "14K", best: false, desc: "Perpaduan unik espresso (dari biji kopi House Blend premium) dengan pandan dan kelapa yang memberikan aroma khas dan rasa eksotis. Sempurna untuk mencari cita rasa yang berbeda dan memorable.", image: "/gambar/Kopi Not Panco dan Pandan Coconut.jpeg" },
+    { id: 15, name: "KOPI SEA SALT BUTTERSCOTCH", price: "18K", best: true, desc: "Kombinasi sempurna antara espresso premium, susu segar, dan sirup butterscotch dengan sentuhan sea salt yang gurih. Menggunakan racikan biji kopi pilihan (House Blend).", image: "/gambar/KOPI SEA SALT BUTTERSCOT.png" },
+    { id: 2, name: "KOPI SALTED CARAMEL", price: "18K", best: true, desc: "Menu andalan kami: Perpaduan espresso dengan gula aren organik murni dan sentuhan sea salt yang memberikan keseimbangan rasa manis dan gurih. Diekstrak dari biji kopi Arabica berkualitas tinggi.", image: "/gambar/Kopi Salted Caramel.png" },
+    { id: 1, name: "ICE KOPI NOT LATTE / HOT", price: "13K", best: false, desc: "Espresso double shot yang kuat dipadukan dengan susu segar yang dikukus hingga berbusa lembut, menciptakan tekstur creamy yang sempurna. Diseduh menggunakan biji kopi 100% Arabica.", image: "/gambar/Kopi Not Latte.png" },
+    { id: 3, name: "ICE KOPI NOT SUSU / HOT", price: "13K", best: false, desc: "Sentuhan rasa klasik yang membawa nostalgia, menggabungkan kopi hitam pekat dengan kental manis premium yang kaya rasa. Menggunakan racikan biji kopi House Blend spesial kami.", image: "/gambar/Kopi Not Susu.png" },
+    { id: 4, name: "ICE AMERICANO / HOT", price: "10K", best: false, desc: "Ekstraksi espresso murni yang jernih menggunakan biji kopi 100% Arabica house roast kami, disajikan untuk kesegaran rasa kopi yang jujur with notes rasa yang khas.", image: "/gambar/americano.png" },
+    { id: 8, name: "KOPI NOT PANCO (PANDAN COCONUT)", price: "15K", best: false, desc: "Perpaduan unik espresso (dari biji kopi House Blend premium) dengan pandan dan kelapa yang memberikan aroma khas dan rasa eksotis. Sempurna untuk mencari cita rasa yang berbeda dan memorable.", image: "/gambar/Kopi Not Panco dan Pandan Coconut.jpeg" },
   ],
   nonCoffee: [
-    { id: 5, name: "COKELAT", price: "13K", best: false, desc: "Minuman cokelat hitam premium pilihan yang dipadukan dengan susu segar full cream, memberikan sensasi rasa cokelat asli yang mendalam, kental, dan mewah tanpa perasa buatan.", image: "/gambar/Cokelat.png" },
+    { id: 5, name: "ICE COKELAT / HOT", price: "13K", best: false, desc: "Minuman cokelat hitam premium pilihan yang dipadukan dengan susu segar full cream, memberikan sensasi rasa cokelat asli yang mendalam, kental, dan mewah tanpa perasa buatan.", image: "/gambar/Cokelat.png" },
     { id: 7, name: "RED VELVET", price: "13K", best: false, desc: "Ekstrak rasa kue Red Velvet asli yang kaya dan manis lembut dipadukan dengan susu segar krimi, menghadirkan sensasi makan kue premium dalam setiap tegukan.", image: "/gambar/Red velvet.png" },
     { id: 10, name: "THAI TEA", price: "13K", best: false, desc: "Seduhan daun teh hitam asli khas Thailand pilihan yang disajikan dengan takaran kental manis dan susu evaporasi yang pas, menciptakan profil rasa teh yang otentik dan menyegarkan.", image: "/gambar/Thai Tea.png" },
   ],
   matcha: [
-    { id: 6, name: "MATCHA LATTE", price: "18K", best: true, desc: "Bubuk Matcha premium 100% asli Jepang yang disajikan dengan susu segar dan foam lembut, diolah dengan resep rahasia Not Yet Coffee untuk rasa otentik yang tak terlupakan.", image: "/gambar/Matcha Latte.png" },
+    { id: 6, name: "ICE MATCHA LATTE / HOT", price: "18K", best: true, desc: "Bubuk Matcha premium 100% asli Jepang yang disajikan dengan susu segar dan foam lembut, diolah dengan resep rahasia Not Yet Coffee untuk rasa otentik yang tak terlupakan.", image: "/gambar/Matcha Latte.png" },
     { id: 17, name: "MATCHA STROBERI", price: "20K", best: true, desc: "Perpaduan unik antara bubuk matcha premium Jepang dan selai stroberi segar buatan sendiri (homemade) yang memberikan rasa manis dan asam yang sangat seimbang.", image: "/gambar/Matcha Stroberi.png" }
   ],
   liter: [
@@ -473,6 +473,13 @@ const Navbar = () => {
             className="fixed inset-0 z-[110] bg-brand-red flex flex-col items-center justify-center"
           >
             <div className="flex flex-col gap-10 items-center">
+              <motion.div
+                initial={{ scale: 0, rotate: -10 }}
+                animate={{ scale: 1, rotate: 0 }}
+                className="bg-white p-3 rounded-2xl shadow-xl mb-4"
+              >
+                <img src="/gambar/logo.jpeg" alt="Logo" className="w-20 h-20 object-contain rounded-xl" />
+              </motion.div>
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.name}
@@ -547,24 +554,7 @@ const GoogleMap = () => (
 
 const FloatingSocialButtons = () => (
   <div className="fixed bottom-8 right-8 z-[150] flex flex-col gap-4">
-    <motion.a
-      href="https://www.tiktok.com/@not.yet.coffee?_r=1&_t=ZS-95lPGMnqpT6"
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      className="bg-[#111111] text-white p-5 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.4)] flex items-center justify-center group"
-      aria-label="Follow on TikTok"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity">
-        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.36-1.37 1.15-3.1 1.83-4.91 2.01-1.64.16-3.33-.08-4.81-.88-2.61-1.4-4.22-4.14-4.27-7.14-.04-2.52 1.05-5.01 2.97-6.72 1.58-1.4 3.66-2.18 5.76-2.29v4.06c-1.44.02-2.88.54-3.95 1.51-.95.86-1.48 2.15-1.48 3.46.03 1.48.65 2.91 1.73 3.91 1.03.96 2.47 1.45 3.89 1.34 1.48-.12 2.87-.84 3.79-2 1.01-1.28 1.44-2.91 1.41-4.52V0h4.15z" />
-      </svg>
-      <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 font-display font-black text-xs uppercase tracking-widest whitespace-nowrap">
-        Follow Us
-      </span>
-    </motion.a>
+
     <motion.a
       href="https://wa.me/628818161616"
       target="_blank"
@@ -749,22 +739,7 @@ export default function App() {
                   <p className="text-xs text-white/50 font-bold uppercase group-hover:text-white transition-colors">Follow us for updates</p>
                 </div>
               </a>
-              <a
-                href="https://www.tiktok.com/@not.yet.coffee?_r=1&_t=ZS-95lPGMnqpT6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center md:justify-start gap-4 group"
-              >
-                <div className="bg-white/10 p-2 rounded-lg group-hover:bg-gradient-to-br group-hover:from-[#00f2fe] group-hover:via-[#111111] group-hover:to-[#fe0979] transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-white">
-                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.36-1.37 1.15-3.1 1.83-4.91 2.01-1.64.16-3.33-.08-4.81-.88-2.61-1.4-4.22-4.14-4.27-7.14-.04-2.52 1.05-5.01 2.97-6.72 1.58-1.4 3.66-2.18 5.76-2.29v4.06c-1.44.02-2.88.54-3.95 1.51-.95.86-1.48 2.15-1.48 3.46.03 1.48.65 2.91 1.73 3.91 1.03.96 2.47 1.45 3.89 1.34 1.48-.12 2.87-.84 3.79-2 1.01-1.28 1.44-2.91 1.41-4.52V0h4.15z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-black text-white text-sm tracking-widest uppercase">@not.yet.coffee</h4>
-                  <p className="text-xs text-white/50 font-bold uppercase group-hover:text-white transition-colors">Watch our videos</p>
-                </div>
-              </a>
+
               <div className="flex items-start justify-center md:justify-start gap-4">
                 <div className="bg-white/10 p-2 rounded-lg">
                   <MapPin className="w-6 h-6 text-white" />
