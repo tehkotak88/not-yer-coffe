@@ -307,8 +307,8 @@ const INFO_DATA = [
   },
   {
     id: 2,
-    name: "STRATEGIC LOCATION",
-    value: "Terletak di BTN Minasa Upa Blok F 15 / 14, kedai kami menawarkan suasana yang tenang dan nyaman, jauh dari hiruk-pikuk kota, menjadikannya tempat ideal untuk bekerja maupun bersantai.",
+    title: "STRATEGIC LOCATION",
+    value: "BTN MINASA UPA BLOK F 15 / 14, Makassar. Kedai kami menawarkan suasana yang tenang dan nyaman, menjadikannya tempat ideal untuk bekerja maupun bersantai.",
     icon: MapPin
   },
   {
@@ -731,14 +731,6 @@ const Navbar = () => {
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
             </button>
-            <motion.a
-              href="#menu"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-brand-red px-5 py-2 rounded-full font-black text-[10px] tracking-widest uppercase shadow-xl hover:shadow-white/20 transition-all hidden sm:block"
-            >
-              Order Now
-            </motion.a>
           </div>
         </div>
       </nav>
@@ -809,7 +801,7 @@ const GoogleMap = () => (
     >
       <iframe
         title="Not Yet Coffee location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15894.499696956!2d119.46782236977538!3d-5.180499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbee3495f548d47%3A0xc6cb1c49122a21b3!2sBTN%20Minasa%20Upa!5e0!3m2!1sid!2sid!4v1713538800000!5m2!1sid!2sid"
+        src="https://maps.google.com/maps?q=Not%20Yet%20Coffee%20Makassar%20BTN%20Minasa%20Upa&t=&z=15&ie=UTF8&iwloc=&output=embed"
         width="100%"
         height="100%"
         style={{ border: 0, filter: 'grayscale(100%) invert(100%) contrast(90%)' }}
@@ -822,9 +814,9 @@ const GoogleMap = () => (
       <div className="absolute bottom-10 left-10 z-10 hidden md:block">
         <div className="bg-white p-6 rounded-3xl shadow-2xl border-4 border-brand-red/10 max-w-xs transform -rotate-2">
           <h4 className="font-display font-black text-brand-red text-xl uppercase mb-2">Not Yet Coffee</h4>
-          <p className="text-brand-red/70 text-xs font-bold uppercase leading-relaxed italic">
+          <p className="text-brand-red/70 text-[10px] font-black uppercase leading-relaxed">
             BTN MINASA UPA BLOK F 15 / 14,<br />
-            Gedung Merah - Lantai 1
+            MAKASSAR
           </p>
         </div>
       </div>
