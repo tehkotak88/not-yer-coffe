@@ -48,7 +48,7 @@ const CatalogHeader = () => (
           </div>
           {/* Badge */}
           <div className="absolute -bottom-4 -right-4 bg-white text-brand-red px-4 py-2 rounded-2xl shadow-xl font-black text-[10px] uppercase tracking-widest rotate-6 border-2 border-brand-red/10">
-            Est. 2024
+            Est. 2025
           </div>
         </motion.div>
 
@@ -1044,7 +1044,7 @@ export default function App() {
 
             <div className="flex flex-col md:items-end gap-2 pr-4">
               <p className="text-white font-black text-[10px] tracking-[0.5em] uppercase opacity-20">
-                ©2024 NOT YET COFFEE STUDIO
+                ©2025 NOT YET COFFEE STUDIO
               </p>
               <div className="flex gap-4">
                 <div className="w-8 h-[2px] bg-white/20" />
