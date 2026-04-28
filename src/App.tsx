@@ -525,33 +525,84 @@ const MenuModal = ({ item, onClose }: { item: any, onClose: () => void }) => {
   );
 };
 
-const InfoParagraph = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    className="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm p-10 md:p-16 rounded-[48px] border border-white/10 text-center md:text-left relative overflow-hidden group"
-  >
-    <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl group-hover:bg-white/10 transition-colors" />
+const InfoParagraph = () => {
+  const [isHovering, setIsHovering] = useState(false);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-    <div className="relative z-10">
-      <h3 className="font-display font-black text-white text-3xl md:text-4xl mb-8 leading-tight uppercase tracking-tight">
-        Filosofi di Balik Setiap <span className="text-white/40">Seduhan Kami</span>
-      </h3>
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
 
-      <div className="space-y-6 font-sans text-white/80 text-sm md:text-base leading-relaxed italic">
-        <p>
-          Di <strong>Not Yet Coffee</strong>, kami percaya bahwa kopi bukan sekadar minuman, melainkan sebuah perjalanan rasa yang patut dinikmati tanpa terburu-buru. Itulah mengapa setiap cangkir yang kami sajikan adalah hasil dari dedikasi tinggi, mulai dari pemilihan biji kopi terbaik hingga metode penyeduhan yang presisi untuk mengeluarkan profil rasa yang paling autentik.
-        </p>
-        <p>
-          Berlokasi di ketenangan <strong>BTN Minasa Upa</strong>, kedai kami dirancang sebagai pelarian sejenak dari hiruk-pikuk rutinitas. Kami menyediakan ruang yang bukan hanya sekadar tempat duduk, tapi sebuah ekosistem kreatif di mana Anda bisa bekerja dengan fokus atau berbagi tawa bersama komunitas pecinta kopi Makassar lainnya.
-        </p>
-        <p>
-          Kami mengundang Anda untuk berkunjung setiap <strong>hari</strong>, mulai pukul 08:00 pagi. Khusus pada <strong>akhir pekan</strong>, kami buka hingga pukul 00:00 malam untuk menemani waktu santai Anda lebih lama. Jangan lupa untuk mengikuti linimasa kami di Instagram guna mendapatkan info promo eksklusif dan menjadi bagian dari semangat komunitas kami yang terus tumbuh. Selamat menikmati waktu tunggu Anda bersama kami.
-        </p>
-      </div>
-    </div>
-  </motion.div>
-);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+    if (!isHovering) setIsHovering(true);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      style={{ perspective: 1000 }}
+      className="max-w-4xl mx-auto relative group"
+    >
+      <motion.div
+        animate={!isHovering ? {
+          rotateX: [0.5, -0.5, 0.5],
+          rotateY: [1, -1, 1],
+        } : {}}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        style={{
+          rotateX: isHovering ? rotateX : 0,
+          rotateY: isHovering ? rotateY : 0,
+          transformStyle: "preserve-3d",
+        }}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => {
+          setIsHovering(false);
+          x.set(0);
+          y.set(0);
+        }}
+        className="bg-white/5 backdrop-blur-sm p-10 md:p-16 rounded-[48px] border border-white/10 text-center md:text-left relative overflow-hidden"
+      >
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl group-hover:bg-white/10 transition-colors" />
+
+        <div style={{ transform: "translateZ(30px)" }} className="relative z-10">
+          <h3 className="font-display font-black text-white text-3xl md:text-4xl mb-8 leading-tight uppercase tracking-tight">
+            Filosofi di Balik Setiap <span className="text-white/40">Seduhan Kami</span>
+          </h3>
+
+          <div className="space-y-6 font-sans text-white/80 text-sm md:text-base leading-relaxed italic">
+            <p>
+              Di <strong>Not Yet Coffee</strong>, kami percaya bahwa kopi bukan sekadar minuman, melainkan sebuah perjalanan rasa yang patut dinikmati tanpa terburu-buru. Itulah mengapa setiap cangkir yang kami sajikan adalah hasil dari dedikasi tinggi, mulai dari pemilihan biji kopi terbaik hingga metode penyeduhan yang presisi untuk mengeluarkan profil rasa yang paling autentik.
+            </p>
+            <p>
+              Berlokasi di ketenangan <strong>BTN Minasa Upa</strong>, kedai kami dirancang sebagai pelarian sejenak dari hiruk-pikuk rutinitas. Kami menyediakan ruang yang bukan hanya sekadar tempat duduk, tapi sebuah ekosistem kreatif di mana Anda bisa bekerja dengan fokus atau berbagi tawa bersama komunitas pecinta kopi Makassar lainnya.
+            </p>
+            <p>
+              Kami mengundang Anda untuk berkunjung setiap <strong>hari</strong>, mulai pukul 08:00 pagi. Khusus pada <strong>akhir pekan</strong>, kami buka hingga pukul 00:00 malam untuk menemani waktu santai Anda lebih lama. Jangan lupa untuk mengikuti linimasa kami di Instagram guna mendapatkan info promo eksklusif dan menjadi bagian dari semangat komunitas kami yang terus tumbuh. Selamat menikmati waktu tunggu Anda bersama kami.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -916,9 +967,22 @@ export default function App() {
             </div>
 
             <div className="flex flex-col items-center gap-6">
-              <div className="inline-block bg-white text-brand-red px-8 py-4 rounded-3xl font-display font-black text-2xl uppercase italic shadow-2xl rotate-[-2deg] border-4 border-white active:scale-95 transition-transform cursor-default select-none">
+              <motion.div
+                animate={{
+                  rotate: [-2, 2, -2],
+                  y: [0, -5, 0],
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                whileHover={{ scale: 1.1, rotate: 0 }}
+                className="inline-block bg-white text-brand-red px-8 py-4 rounded-3xl font-display font-black text-2xl uppercase italic shadow-[0_20px_50px_rgba(255,255,255,0.3)] rotate-[-2deg] border-4 border-white active:scale-95 transition-transform cursor-default select-none"
+              >
                 *TAMBAH ESPRESSO 2K*
-              </div>
+              </motion.div>
             </div>
 
             <div className="flex flex-col md:items-end gap-2 pr-4">
