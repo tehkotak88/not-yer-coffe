@@ -123,6 +123,7 @@ const BestSellerSign = () => (
 );
 
 const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: string | number }) => {
+  const [isHovering, setIsHovering] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -142,9 +143,11 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
     const yPct = mouseY / height - 0.5;
     x.set(xPct);
     y.set(yPct);
+    if (!isHovering) setIsHovering(true);
   };
 
   const handleMouseLeave = () => {
+    setIsHovering(false);
     x.set(0);
     y.set(0);
   };
@@ -165,11 +168,21 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
       className="relative flex flex-col items-center group mb-20 px-4"
     >
       <motion.div
+        animate={!isHovering ? {
+          rotateX: [2, -2, 2],
+          rotateY: [3, -3, 3],
+        } : {}}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
         style={{
-          rotateX,
-          rotateY,
+          rotateX: isHovering ? rotateX : 0,
+          rotateY: isHovering ? rotateY : 0,
           transformStyle: "preserve-3d",
         }}
+        onMouseEnter={() => setIsHovering(true)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onClick={onClick}
