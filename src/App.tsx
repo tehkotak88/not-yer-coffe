@@ -233,8 +233,8 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
         
         {item.best && (
           <div 
-            style={{ transform: "translateZ(70px)" }}
-            className="absolute bottom-4 right-4 z-50 pointer-events-none"
+            style={{ transform: "translateZ(110px)" }}
+            className="absolute bottom-4 right-4 z-[90] pointer-events-none"
           >
             <BestSellerSign />
           </div>
@@ -270,8 +270,13 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
         <h3 className="font-display font-black text-[22px] leading-tight tracking-tight text-white mb-1 uppercase group-hover:tracking-wider transition-all duration-300">
           {item.name}
         </h3>
-        {/* Guaranteed Price Visibility for Mobile */}
-        <div className="flex justify-center mb-3 sm:hidden">
+        {/* Mobile-only Badges */}
+        <div className="flex flex-col items-center gap-2 mb-3 sm:hidden">
+          {item.best && (
+            <span className="text-[8px] bg-amber-400 text-black px-3 py-1 rounded-full font-black uppercase tracking-[0.2em] shadow-lg">
+              ★ BEST SELLER
+            </span>
+          )}
           <span className="bg-white text-brand-red px-5 py-1.5 rounded-full font-black text-xs shadow-xl tracking-tighter">
             {item.price}
           </span>
