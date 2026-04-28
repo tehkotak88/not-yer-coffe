@@ -29,63 +29,90 @@ const MENU_DATA = {
 };
 
 const CatalogHeader = () => (
-  <header className="relative pt-12 pb-8 px-6 overflow-hidden">
-    <div className="max-w-6xl mx-auto">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+  <header className="relative pt-32 pb-20 px-6 overflow-hidden">
+    {/* Decorative Elements */}
+    <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-[120px] -translate-y-1/2" />
+    <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-[100px] translate-y-1/2" />
+
+    <div className="max-w-6xl mx-auto relative z-10">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-20">
         <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="flex flex-col"
+          initial={{ y: -30, opacity: 0, rotate: -5 }}
+          animate={{ y: 0, opacity: 1, rotate: -3 }}
+          whileHover={{ rotate: 0, scale: 1.05 }}
+          className="flex flex-col relative"
         >
-          <div className="bg-white p-5 rounded-xl shadow-[12px_12px_0px_0px_rgba(0,0,0,0.15)] -rotate-3 border-2 border-white mb-4">
-            <img src="/gambar/logo.jpeg" alt="Not Yet Coffee Logo" className="w-32 h-32 object-contain" />
+          <div className="bg-white p-6 rounded-[32px] shadow-[20px_20px_60px_rgba(0,0,0,0.3)] border-4 border-white/50 relative group">
+            <img src="/gambar/logo.jpeg" alt="Not Yet Coffee Logo" className="w-40 h-40 object-contain rounded-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+          </div>
+          {/* Badge */}
+          <div className="absolute -bottom-4 -right-4 bg-white text-brand-red px-4 py-2 rounded-2xl shadow-xl font-black text-[10px] uppercase tracking-widest rotate-6 border-2 border-brand-red/10">
+            Est. 2024
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="text-center md:text-right relative"
+          initial={{ x: 30, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          className="text-center md:text-right"
         >
-          <div className="relative z-10 space-y-4">
-            <div className="flex flex-col items-center md:items-end gap-1">
-              <div className="bg-white text-brand-red px-4 py-1 rounded-md font-black text-[10px] uppercase tracking-widest shadow-lg">
-                Operational Hours
-              </div>
-              <span className="font-display font-black text-3xl text-white tracking-widest drop-shadow-md">OPEN EVERYDAY</span>
-              <span className="font-display font-bold text-sm text-white/90 tracking-widest uppercase">MON-FRI: 08:00-23:00 | SAT-SUN: 08:00-00:00</span>
+          <div className="space-y-6">
+            <div className="flex flex-col items-center md:items-end gap-2">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-white text-brand-red px-5 py-1.5 rounded-full font-black text-[11px] uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(255,255,255,0.2)]"
+              >
+                Now Brewing in Makassar
+              </motion.div>
+              <h1 className="font-display font-black text-5xl md:text-7xl text-white tracking-tighter leading-none drop-shadow-2xl">
+                NOT YET<br /><span className="text-white/40 italic">COFFEE</span>
+              </h1>
+              <p className="font-display font-bold text-sm text-white/60 tracking-[0.4em] uppercase mt-2">Premium Local Blend</p>
             </div>
-            <div className="flex items-center justify-center md:justify-end gap-6 text-[10px] font-bold uppercase tracking-widest text-white/80">
-              <div className="flex items-center gap-2">
-                <Instagram className="w-3 h-3" />
-                <span>@notyetcoffee</span>
+            
+            <div className="flex items-center justify-center md:justify-end gap-8 pt-4">
+              <div className="flex items-center gap-3 group cursor-default">
+                <div className="p-2 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors">
+                  <Clock className="w-4 h-4 text-white" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[9px] font-black text-white/40 uppercase tracking-widest leading-none mb-1">Open Daily</p>
+                  <p className="text-[11px] font-bold text-white uppercase tracking-wider">08:00 - 23:00</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-3 h-3" />
-                <span>Minasa Upa Blok F</span>
+              <div className="h-8 w-[1px] bg-white/10" />
+              <div className="flex items-center gap-3 group cursor-default">
+                <div className="p-2 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors">
+                  <MapPin className="w-4 h-4 text-white" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[9px] font-black text-white/40 uppercase tracking-widest leading-none mb-1">Location</p>
+                  <p className="text-[11px] font-bold text-white uppercase tracking-wider">Minasa Upa</p>
+                </div>
               </div>
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Integrated Promo Banner */}
+      {/* Modern Promo Bar */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white/10 backdrop-blur-md border-y border-white/20 py-4 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12"
+        className="bg-white/5 backdrop-blur-xl border border-white/10 p-1.5 rounded-full flex flex-col sm:flex-row items-center gap-4 sm:gap-2 shadow-2xl max-w-4xl mx-auto"
       >
-        <span className="text-white font-black italic tracking-[0.2em] transform -rotate-1">
-          * SETIAP HARI *
-        </span>
-        <div className="h-6 w-[2px] bg-white/20 hidden md:block" />
-        <span className="bg-white text-brand-red px-4 py-1 text-sm font-black uppercase rotate-1">
-          TAMBAH ESPRESSO +2K
-        </span>
-        <div className="h-6 w-[2px] bg-white/20 hidden md:block" />
-        <span className="text-white font-black italic tracking-[0.2em] transform -rotate-1">
-          * PREMIUM BLEND *
-        </span>
+        <div className="bg-white text-brand-red px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg shrink-0">
+          DAILY PROMO
+        </div>
+        <div className="flex-1 flex items-center justify-center gap-8 px-6">
+          <span className="text-white/80 font-bold text-[10px] uppercase tracking-[0.2em] italic">Tambah Espresso +2K</span>
+          <div className="w-1.5 h-1.5 bg-white/20 rounded-full" />
+          <span className="text-white/80 font-bold text-[10px] uppercase tracking-[0.2em] italic">Premium Arabica Blend</span>
+          <div className="w-1.5 h-1.5 bg-white/20 rounded-full hidden md:block" />
+          <span className="text-white/80 font-bold text-[10px] uppercase tracking-[0.2em] italic hidden md:block">Freshly Roasted</span>
+        </div>
       </motion.div>
     </div>
   </header>
@@ -93,13 +120,14 @@ const CatalogHeader = () => (
 
 const PriceTag = ({ price }: { price: string }) => (
   <motion.div
-    initial={{ scale: 0 }}
-    whileInView={{ scale: 1 }}
-    className="absolute -top-6 -left-2 z-20"
+    initial={{ scale: 0, rotate: -20 }}
+    whileInView={{ scale: 1, rotate: -5 }}
+    whileHover={{ scale: 1.1, rotate: 0 }}
+    className="relative z-20"
   >
-    <div className="relative flex items-center justify-center w-20 h-20">
-      <div className="absolute inset-0 bg-white shadow-xl jagged-price" />
-      <span className="relative z-10 font-display font-black text-brand-red text-2xl tracking-tighter select-none">
+    <div className="bg-white text-brand-red px-6 py-3 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] border-2 border-brand-red/5 flex flex-col items-center">
+      <span className="text-[8px] font-black uppercase tracking-[0.3em] opacity-40 mb-1">Starts From</span>
+      <span className="font-display font-black text-2xl tracking-tighter leading-none">
         {price}
       </span>
     </div>
@@ -108,15 +136,18 @@ const PriceTag = ({ price }: { price: string }) => (
 
 const BestSellerSign = () => (
   <motion.div
-    initial={{ x: 20, opacity: 0 }}
-    whileInView={{ x: 0, opacity: 1 }}
-    className="absolute -bottom-6 -right-2 z-20"
+    initial={{ scale: 0, rotate: 20 }}
+    whileInView={{ scale: 1, rotate: 10 }}
+    whileHover={{ scale: 1.1, rotate: 0 }}
+    className="relative z-20"
   >
-    <div className="bg-white p-1 rounded-full shadow-2xl border-4 border-[#FFD700]">
-      <div className="bg-white p-2 rounded-full border-2 border-[#FFD700] flex flex-col items-center justify-center w-16 h-16">
-        <Star className="w-5 h-5 text-[#FFD700] fill-[#FFD700]" />
-        <span className="font-display font-black text-[8px] text-black tracking-tight leading-none mt-1">BEST</span>
-        <span className="font-display font-black text-[8px] text-black tracking-tight leading-none">SELLER</span>
+    <div className="bg-[#FFD700] p-0.5 rounded-2xl shadow-xl">
+      <div className="bg-white px-4 py-2 rounded-[14px] flex items-center gap-2 border-2 border-[#FFD700]/20">
+        <Star className="w-4 h-4 text-[#FFD700] fill-[#FFD700]" />
+        <div className="flex flex-col">
+          <span className="font-display font-black text-[9px] text-black tracking-widest leading-none uppercase">Best</span>
+          <span className="font-display font-black text-[9px] text-black tracking-widest leading-none uppercase">Seller</span>
+        </div>
       </div>
     </div>
   </motion.div>
@@ -127,11 +158,11 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["12deg", "-12deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-12deg", "12deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -161,19 +192,19 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      style={{ perspective: 1000 }}
-      className="relative flex flex-col items-center group mb-20 px-4"
+      style={{ perspective: 1200 }}
+      className="relative flex flex-col items-center group mb-24 px-4"
     >
       <motion.div
         animate={!isHovering ? {
-          rotateX: [2, -2, 2],
-          rotateY: [3, -3, 3],
+          rotateX: [1, -1, 1],
+          rotateY: [1.5, -1.5, 1.5],
         } : {}}
         transition={{
-          duration: 4,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -188,10 +219,22 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
         onClick={onClick}
         onKeyDown={handleKeyDown}
         tabIndex={0}
-        className="relative w-full max-w-[300px] aspect-[4/5] cursor-pointer focus:outline-none rounded-[48px]"
+        className="relative w-full max-w-[280px] cursor-pointer focus:outline-none"
       >
+        {/* Shadow layer for depth */}
+        <motion.div 
+          style={{
+            transform: "translateZ(-20px)",
+            boxShadow: "0 30px 60px rgba(0,0,0,0.4)"
+          }}
+          className="absolute inset-4 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
+        />
+
         <div 
-          style={{ transform: "translateZ(50px)" }}
+          style={{ 
+            transform: "translateZ(60px)",
+            filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))"
+          }}
           className="absolute -top-6 -left-6 z-30 pointer-events-none"
         >
           <PriceTag price={item.price} />
@@ -199,48 +242,57 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
         
         {item.best && (
           <div 
-            style={{ transform: "translateZ(40px)" }}
+            style={{ transform: "translateZ(50px)" }}
             className="absolute -bottom-6 -right-6 z-30 pointer-events-none"
           >
             <BestSellerSign />
           </div>
         )}
 
-        <div className="w-full h-full rounded-[48px] overflow-hidden bg-white shadow-[0_30px_60px_rgba(0,0,0,0.3)] group-hover:shadow-[0_50px_100px_rgba(0,0,0,0.5)] transition-shadow duration-500 relative">
-          {/* Glare effect */}
-          <motion.div 
-            style={{
-              background: useTransform(
-                [mouseXSpring, mouseYSpring],
-                ([mx, my]) => `radial-gradient(circle at ${((mx as number) + 0.5) * 100}% ${((my as number) + 0.5) * 100}%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%)`
-              ),
-              zIndex: 20
-            }}
-            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
-          />
+        <div className="w-full bg-white rounded-[40px] p-4 pb-8 shadow-2xl relative overflow-hidden flex flex-col items-center">
+          {/* Card body background with slight depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white pointer-events-none" />
           
-          <img
-            src={item.image}
-            alt={item.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-      </motion.div>
+          <div className="w-full aspect-[1/1.1] rounded-[32px] overflow-hidden mb-6 relative group/img shadow-lg">
+            <motion.img
+              src={item.image}
+              alt={item.name}
+              style={{ transform: "translateZ(20px)" }}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              referrerPolicy="no-referrer"
+            />
+            {/* Gloss overlay */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
+          </div>
 
-      <motion.div
-        className="text-center w-full"
-        transition={{ delay: 0.1 }}
-      >
-        <h3 className="font-display font-black text-[22px] leading-tight tracking-tight text-white mb-1 uppercase group-hover:tracking-wider group-focus:tracking-wider transition-all duration-300">
-          {item.name}
-        </h3>
-        <p className="font-display font-bold text-[9px] text-white/40 tracking-[0.2em] uppercase mb-3 inline-block group-hover:text-white/80 group-focus:text-white/80 transition-colors">
-          (ICE / HOT)
-        </p>
-        <p className="font-sans text-[10px] text-white/70 leading-relaxed max-w-[200px] mx-auto italic opacity-80 group-hover:opacity-100 group-focus:opacity-100 transition-opacity">
-          {item.desc}
-        </p>
+          <div style={{ transform: "translateZ(40px)" }} className="text-center px-2">
+            <h3 className="font-display font-black text-[20px] leading-tight tracking-tight text-brand-red mb-1 uppercase">
+              {item.name}
+            </h3>
+            <p className="font-display font-bold text-[8px] text-brand-red/40 tracking-[0.25em] uppercase mb-3">
+              Premium Selection
+            </p>
+            <p className="font-sans text-[9px] text-brand-red/70 leading-relaxed max-w-[180px] mx-auto italic font-medium">
+              {item.desc.substring(0, 80)}...
+            </p>
+          </div>
+
+          {/* Card Edge Effect */}
+          <div className="absolute bottom-0 left-0 right-0 h-2 bg-brand-red/5 rounded-b-[40px]" />
+        </div>
+
+        {/* Glare effect */}
+        <motion.div 
+          style={{
+            background: useTransform(
+              [mouseXSpring, mouseYSpring],
+              ([mx, my]) => `radial-gradient(circle at ${((mx as number) + 0.5) * 100}% ${((my as number) + 0.5) * 100}%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%)`
+            ),
+            zIndex: 40,
+            pointerEvents: "none"
+          }}
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[40px]" 
+        />
       </motion.div>
     </motion.div>
   );
@@ -626,26 +678,29 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[120] transition-all duration-500 ${isScrolled ? "py-4 bg-brand-red/80 backdrop-blur-xl border-b border-white/10 shadow-2xl" : "py-8 bg-transparent"
-          }`}
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-[120] transition-all duration-500 w-[95%] max-w-4xl ${
+          isScrolled 
+          ? "py-3 px-6 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-full" 
+          : "py-4 px-8 bg-transparent rounded-none"
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2 group cursor-pointer"
+            className="flex items-center gap-3 group cursor-pointer"
             onClick={() => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
               setIsMobileMenuOpen(false);
             }}
           >
-            <div className="bg-white p-1 rounded-lg rotate-[-5deg] group-hover:rotate-0 transition-transform overflow-hidden">
-              <img src="/gambar/logo.jpeg" alt="NY Logo" className="w-10 h-10 object-cover" />
+            <div className="bg-white p-1.5 rounded-xl rotate-[-8deg] group-hover:rotate-0 transition-all duration-500 shadow-lg overflow-hidden shrink-0">
+              <img src="/gambar/logo.jpeg" alt="NY Logo" className="w-8 h-8 object-cover" />
             </div>
-            <span className="font-display font-black text-white text-lg tracking-tighter">NOTYET COFFEE</span>
+            <span className="font-display font-black text-white text-base tracking-tighter hidden sm:block">NOTYET COFFEE</span>
           </motion.div>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <motion.a
                 key={link.name}
@@ -659,22 +714,32 @@ const Navbar = () => {
                     target.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="font-display font-black text-white/70 hover:text-white text-xs tracking-[0.2em] transition-colors relative group"
+                className="font-display font-black text-white/80 hover:text-white text-[11px] tracking-[0.25em] transition-all duration-300 relative group py-2"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-white transition-all group-hover:w-full" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full opacity-0 group-hover:opacity-100" />
               </motion.a>
             ))}
           </div>
 
-          <button
-            type="button"
-            className="md:hidden relative z-[200] text-white p-4 -mr-4 flex items-center justify-center cursor-pointer pointer-events-auto select-none"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            {isMobileMenuOpen ? <X className="w-8 h-8 pointer-events-none" /> : <MenuIcon className="w-8 h-8 pointer-events-none" />}
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              className="md:hidden relative z-[200] text-white p-2 flex items-center justify-center cursor-pointer"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+            </button>
+            <motion.a
+              href="#menu"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-brand-red px-5 py-2 rounded-full font-black text-[10px] tracking-widest uppercase shadow-xl hover:shadow-white/20 transition-all hidden sm:block"
+            >
+              Order Now
+            </motion.a>
+          </div>
         </div>
       </nav>
 
