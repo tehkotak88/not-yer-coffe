@@ -97,23 +97,6 @@ const CatalogHeader = () => (
         </motion.div>
       </div>
 
-      {/* Modern Promo Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-white/5 backdrop-blur-xl border border-white/10 p-1.5 rounded-full flex flex-col sm:flex-row items-center gap-4 sm:gap-2 shadow-2xl max-w-4xl mx-auto"
-      >
-        <div className="bg-white text-brand-red px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg shrink-0">
-          DAILY PROMO
-        </div>
-        <div className="flex-1 flex items-center justify-center gap-8 px-6">
-          <span className="text-white/80 font-bold text-[10px] uppercase tracking-[0.2em] italic">Tambah Espresso +2K</span>
-          <div className="w-1.5 h-1.5 bg-white/20 rounded-full" />
-          <span className="text-white/80 font-bold text-[10px] uppercase tracking-[0.2em] italic">Premium Arabica Blend</span>
-          <div className="w-1.5 h-1.5 bg-white/20 rounded-full hidden md:block" />
-          <span className="text-white/80 font-bold text-[10px] uppercase tracking-[0.2em] italic hidden md:block">Freshly Roasted</span>
-        </div>
-      </motion.div>
     </div>
   </header>
 );
@@ -236,7 +219,7 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
             transform: "translateZ(80px)",
             filter: "drop-shadow(0 15px 30px rgba(0,0,0,0.3))"
           }}
-          className="absolute top-2 left-2 z-[60] pointer-events-none"
+          className="absolute top-2 left-2 z-[60] pointer-events-none hidden sm:block"
         >
           <PriceTag price={item.price} />
         </div>
@@ -270,6 +253,12 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
             <h3 className="font-display font-black text-[20px] leading-tight tracking-tight text-brand-red mb-1 uppercase">
               {item.name}
             </h3>
+            {/* Mobile-only Price Display */}
+            <div className="sm:hidden mb-2">
+              <span className="bg-brand-red/10 text-brand-red px-4 py-1 rounded-full text-sm font-black tracking-tighter">
+                {item.price}
+              </span>
+            </div>
             <p className="font-display font-bold text-[8px] text-brand-red/40 tracking-[0.25em] uppercase mb-3">
               Premium Selection
             </p>
