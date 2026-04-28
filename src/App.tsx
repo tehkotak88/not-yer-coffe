@@ -97,6 +97,24 @@ const CatalogHeader = () => (
         </motion.div>
       </div>
 
+      {/* Integrated Promo Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-3xl flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 shadow-2xl max-w-4xl mx-auto"
+      >
+        <span className="text-white font-black italic tracking-[0.2em] text-[10px] uppercase">
+          * SETIAP HARI *
+        </span>
+        <div className="h-6 w-[2px] bg-white/20 hidden md:block" />
+        <span className="bg-white text-brand-red px-4 py-1 text-[11px] font-black uppercase rotate-1 rounded shadow-lg">
+          TAMBAH ESPRESSO +2K
+        </span>
+        <div className="h-6 w-[2px] bg-white/20 hidden md:block" />
+        <span className="text-white font-black italic tracking-[0.2em] text-[10px] uppercase">
+          * PREMIUM BLEND *
+        </span>
+      </motion.div>
     </div>
   </header>
 );
@@ -202,87 +220,57 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
         onClick={onClick}
         onKeyDown={handleKeyDown}
         tabIndex={0}
-        className="relative w-full max-w-[280px] cursor-pointer focus:outline-none"
+        className="relative w-full max-w-[300px] aspect-[4/5] cursor-pointer focus:outline-none"
       >
-        {/* Shadow layer for depth */}
-        <motion.div 
-          style={{
-            transform: "translateZ(-20px)",
-            boxShadow: "0 30px 60px rgba(0,0,0,0.4)"
-          }}
-          className="absolute inset-4 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
-        />
-
-        {/* Price Tag - Moved inside and made more robust */}
         <div 
-          style={{ 
-            transform: "translateZ(80px)",
-            filter: "drop-shadow(0 15px 30px rgba(0,0,0,0.3))"
-          }}
-          className="absolute top-2 left-2 z-[60] pointer-events-none hidden sm:block"
+          style={{ transform: "translateZ(80px)" }}
+          className="absolute top-4 left-4 z-50 pointer-events-none"
         >
           <PriceTag price={item.price} />
         </div>
         
         {item.best && (
           <div 
-            style={{ transform: "translateZ(50px)" }}
-            className="absolute -bottom-6 -right-6 z-30 pointer-events-none"
+            style={{ transform: "translateZ(70px)" }}
+            className="absolute bottom-4 right-4 z-50 pointer-events-none"
           >
             <BestSellerSign />
           </div>
         )}
 
-        <div className="w-full bg-white rounded-[40px] p-4 pb-8 shadow-2xl relative flex flex-col items-center">
-          {/* Card body background with slight depth */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white pointer-events-none" />
-          
-          <div className="w-full aspect-[1/1.1] rounded-[32px] overflow-hidden mb-6 relative group/img shadow-lg">
-            <motion.img
-              src={item.image}
-              alt={item.name}
-              style={{ transform: "translateZ(20px)" }}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              referrerPolicy="no-referrer"
-            />
-            {/* Gloss overlay */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
-          </div>
-
-          <div style={{ transform: "translateZ(40px)" }} className="text-center px-2">
-            <h3 className="font-display font-black text-[20px] leading-tight tracking-tight text-brand-red mb-1 uppercase">
-              {item.name}
-            </h3>
-            {/* Mobile-only Price Display */}
-            <div className="sm:hidden mb-2">
-              <span className="bg-brand-red/10 text-brand-red px-4 py-1 rounded-full text-sm font-black tracking-tighter">
-                {item.price}
-              </span>
-            </div>
-            <p className="font-display font-bold text-[8px] text-brand-red/40 tracking-[0.25em] uppercase mb-3">
-              Premium Selection
-            </p>
-            <p className="font-sans text-[9px] text-brand-red/70 leading-relaxed max-w-[180px] mx-auto italic font-medium">
-              {item.desc.substring(0, 80)}...
-            </p>
-          </div>
-
-          {/* Card Edge Effect */}
-          <div className="absolute bottom-0 left-0 right-0 h-2 bg-brand-red/5 rounded-b-[40px]" />
+        <div className="w-full h-full rounded-[48px] overflow-hidden bg-white shadow-[0_30px_60px_rgba(0,0,0,0.3)] group-hover:shadow-[0_50px_100px_rgba(0,0,0,0.5)] transition-shadow duration-500 relative">
+          <img
+            src={item.image}
+            alt={item.name}
+            style={{ transform: "translateZ(20px)" }}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            referrerPolicy="no-referrer"
+          />
+          {/* Glare effect */}
+          <motion.div 
+            style={{
+              background: useTransform(
+                [mouseXSpring, mouseYSpring],
+                ([mx, my]) => `radial-gradient(circle at ${((mx as number) + 0.5) * 100}% ${((my as number) + 0.5) * 100}%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%)`
+              ),
+              zIndex: 40,
+              pointerEvents: "none"
+            }}
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+          />
         </div>
+      </motion.div>
 
-        {/* Glare effect */}
-        <motion.div 
-          style={{
-            background: useTransform(
-              [mouseXSpring, mouseYSpring],
-              ([mx, my]) => `radial-gradient(circle at ${((mx as number) + 0.5) * 100}% ${((my as number) + 0.5) * 100}%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 80%)`
-            ),
-            zIndex: 40,
-            pointerEvents: "none"
-          }}
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[40px]" 
-        />
+      <motion.div
+        className="text-center w-full mt-6"
+        style={{ transform: "translateZ(30px)" }}
+      >
+        <h3 className="font-display font-black text-[22px] leading-tight tracking-tight text-white mb-1 uppercase group-hover:tracking-wider transition-all duration-300">
+          {item.name}
+        </h3>
+        <p className="font-sans text-[10px] text-white/70 leading-relaxed max-w-[200px] mx-auto italic opacity-80 group-hover:opacity-100 transition-opacity">
+          {item.desc.substring(0, 80)}...
+        </p>
       </motion.div>
     </motion.div>
   );
