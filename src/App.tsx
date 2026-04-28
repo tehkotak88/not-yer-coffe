@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "motion/react";
 import { Coffee, Instagram, MapPin, Clock, Star, Zap, X, Home, Info, Phone, Menu as MenuIcon, MessageCircle } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const MENU_DATA = {
   coffee: [
@@ -1037,6 +1039,8 @@ export default function App() {
           </div>
         </footer>
       </main>
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
