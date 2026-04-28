@@ -225,8 +225,8 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
         className="relative w-full max-w-[300px] aspect-[4/5] cursor-pointer focus:outline-none"
       >
         <div 
-          style={{ transform: "translateZ(80px)" }}
-          className="absolute top-4 left-4 z-50 pointer-events-none"
+          style={{ transform: "translateZ(120px)" }}
+          className="absolute top-4 left-4 z-[100] pointer-events-none"
         >
           <PriceTag price={item.price} />
         </div>
@@ -244,7 +244,7 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
           <img
             src={item.image}
             alt={item.name}
-            style={{ transform: "translateZ(20px)" }}
+            style={{ transform: "translateZ(10px)" }}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             referrerPolicy="no-referrer"
           />
@@ -270,6 +270,12 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
         <h3 className="font-display font-black text-[22px] leading-tight tracking-tight text-white mb-1 uppercase group-hover:tracking-wider transition-all duration-300">
           {item.name}
         </h3>
+        {/* Guaranteed Price Visibility for Mobile */}
+        <div className="flex justify-center mb-3 sm:hidden">
+          <span className="bg-white text-brand-red px-5 py-1.5 rounded-full font-black text-xs shadow-xl tracking-tighter">
+            {item.price}
+          </span>
+        </div>
         <p className="font-sans text-[10px] text-white/70 leading-relaxed max-w-[200px] mx-auto italic opacity-80 group-hover:opacity-100 transition-opacity">
           {item.desc.substring(0, 80)}...
         </p>
