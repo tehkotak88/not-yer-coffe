@@ -273,23 +273,99 @@ const INFO_DATA = [
   },
 ];
 
-const InfoCard = ({ item }: { item: any, key?: string | number }) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    className="bg-white p-10 rounded-[40px] border-4 border-white/20 shadow-2xl flex flex-col items-center text-center group h-full"
-  >
-    <div className="w-20 h-20 rounded-3xl bg-brand-red flex items-center justify-center mb-8 shadow-xl group-hover:rotate-12 transition-transform shrink-0">
-      <item.icon className="w-10 h-10 text-white" />
-    </div>
-    <h4 className="font-display font-black text-brand-red text-xl uppercase tracking-widest mb-4">
-      {item.name || item.title}
-    </h4>
-    <p className="font-sans font-semibold text-brand-red/80 text-[11px] leading-relaxed uppercase italic">
-      {item.value}
-    </p>
-  </motion.div>
-);
+const InfoCard = ({ item }: { item: any, key?: string | number }) => {
+  const [isHovering, setIsHovering] = useState(false);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+    if (!isHovering) setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      style={{ perspective: 1000 }}
+      className="relative h-full"
+    >
+      <motion.div
+        animate={!isHovering ? {
+          rotateX: [1, -1, 1],
+          rotateY: [2, -2, 2],
+        } : {}}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        style={{
+          rotateX: isHovering ? rotateX : 0,
+          rotateY: isHovering ? rotateY : 0,
+          transformStyle: "preserve-3d",
+        }}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="bg-white p-10 rounded-[40px] border-4 border-white/20 shadow-2xl flex flex-col items-center text-center group h-full cursor-default select-none relative overflow-hidden"
+      >
+        <div 
+          style={{ transform: "translateZ(40px)" }}
+          className="w-20 h-20 rounded-3xl bg-brand-red flex items-center justify-center mb-8 shadow-xl group-hover:rotate-12 transition-transform shrink-0"
+        >
+          <item.icon className="w-10 h-10 text-white" />
+        </div>
+        
+        <h4 
+          style={{ transform: "translateZ(30px)" }}
+          className="font-display font-black text-brand-red text-xl uppercase tracking-widest mb-4"
+        >
+          {item.name || item.title}
+        </h4>
+        
+        <p 
+          style={{ transform: "translateZ(20px)" }}
+          className="font-sans font-semibold text-brand-red/80 text-[11px] leading-relaxed uppercase italic"
+        >
+          {item.value}
+        </p>
+
+        {/* Glare effect */}
+        <motion.div 
+          style={{
+            background: useTransform(
+              [mouseXSpring, mouseYSpring],
+              ([mx, my]) => `radial-gradient(circle at ${((mx as number) + 0.5) * 100}% ${((my as number) + 0.5) * 100}%, rgba(185,28,28,0.05) 0%, rgba(185,28,28,0) 80%)`
+            ),
+            zIndex: 0
+          }}
+          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+        />
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const MenuModal = ({ item, onClose }: { item: any, onClose: () => void }) => {
   const modalRef = useRef<HTMLDivElement>(null);
