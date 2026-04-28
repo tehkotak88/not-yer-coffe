@@ -230,12 +230,13 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
           className="absolute inset-4 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
         />
 
+        {/* Price Tag - Moved inside and made more robust */}
         <div 
           style={{ 
-            transform: "translateZ(60px)",
-            filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))"
+            transform: "translateZ(80px)",
+            filter: "drop-shadow(0 15px 30px rgba(0,0,0,0.3))"
           }}
-          className="absolute -top-4 -left-2 sm:-top-6 sm:-left-6 z-30 pointer-events-none"
+          className="absolute top-2 left-2 z-[60] pointer-events-none"
         >
           <PriceTag price={item.price} />
         </div>
@@ -249,7 +250,7 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
           </div>
         )}
 
-        <div className="w-full bg-white rounded-[40px] p-4 pb-8 shadow-2xl relative overflow-hidden flex flex-col items-center">
+        <div className="w-full bg-white rounded-[40px] p-4 pb-8 shadow-2xl relative flex flex-col items-center">
           {/* Card body background with slight depth */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white pointer-events-none" />
           
@@ -689,9 +690,11 @@ const Navbar = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3 group cursor-pointer"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
               setIsMobileMenuOpen(false);
+              window.history.replaceState(null, '', window.location.pathname);
             }}
           >
             <div className="bg-white p-1.5 rounded-xl rotate-[-8deg] group-hover:rotate-0 transition-all duration-500 shadow-lg overflow-hidden shrink-0">
@@ -712,6 +715,7 @@ const Navbar = () => {
                   const target = document.querySelector(link.href);
                   if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
+                    window.history.replaceState(null, '', window.location.pathname);
                   }
                 }}
                 className="font-display font-black text-white/80 hover:text-white text-[11px] tracking-[0.25em] transition-all duration-300 relative group py-2"
@@ -766,6 +770,7 @@ const Navbar = () => {
                     if (target) {
                       setTimeout(() => {
                         target.scrollIntoView({ behavior: 'smooth' });
+                        window.history.replaceState(null, '', window.location.pathname);
                       }, 100);
                     }
                   }}
