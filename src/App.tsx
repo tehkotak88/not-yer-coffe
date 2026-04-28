@@ -341,22 +341,39 @@ const MenuModal = ({ item, onClose }: { item: any, onClose: () => void }) => {
       <motion.div
         ref={modalRef}
         tabIndex={-1}
-        initial={{ scale: 0.9, y: 50, opacity: 0 }}
-        animate={{ scale: 1, y: 0, opacity: 1 }}
-        exit={{ scale: 0.9, y: 50, opacity: 0 }}
+        initial={{ scale: 0.8, y: 50, opacity: 0, rotateX: 10 }}
+        animate={{ scale: 1, y: 0, opacity: 1, rotateX: 0 }}
+        exit={{ scale: 0.8, y: 50, opacity: 0, rotateX: -10 }}
+        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+        style={{ transformStyle: "preserve-3d", perspective: 1200 }}
         className="bg-white rounded-[32px] md:rounded-[40px] w-full max-w-4xl overflow-hidden shadow-[0px_50px_100px_rgba(0,0,0,0.6)] relative focus:outline-none my-auto"
         onClick={e => e.stopPropagation()}
       >
         <div className="flex flex-col md:flex-row h-full max-h-none">
           {/* Product Image Section */}
-          <div className="md:w-1/2 relative bg-gray-50">
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full h-full object-cover min-h-[300px] md:min-h-[500px]"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          <div className="md:w-1/2 relative bg-gray-50 overflow-hidden">
+            <motion.div
+              animate={{
+                rotateX: [0, 3, -3, 0],
+                rotateY: [0, -4, 4, 0],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{ transformStyle: "preserve-3d", perspective: 1000 }}
+              className="w-full h-full"
+            >
+              <motion.img
+                src={item.image}
+                alt={item.name}
+                whileHover={{ scale: 1.05, rotateZ: 1 }}
+                className="w-full h-full object-cover min-h-[300px] md:min-h-[500px] shadow-2xl"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
           </div>
 
           {/* Product Details Section */}
