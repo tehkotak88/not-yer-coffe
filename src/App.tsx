@@ -125,9 +125,9 @@ const PriceTag = ({ price }: { price: string }) => (
     whileHover={{ scale: 1.1, rotate: 0 }}
     className="relative z-20"
   >
-    <div className="bg-white text-brand-red px-6 py-3 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] border-2 border-brand-red/5 flex flex-col items-center">
-      <span className="text-[8px] font-black uppercase tracking-[0.3em] opacity-40 mb-1">Starts From</span>
-      <span className="font-display font-black text-2xl tracking-tighter leading-none">
+    <div className="bg-white text-brand-red px-4 py-2 sm:px-6 sm:py-3 rounded-xl sm:rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] border-2 border-brand-red/5 flex flex-col items-center">
+      <span className="text-[7px] sm:text-[8px] font-black uppercase tracking-[0.3em] opacity-40 mb-0.5 sm:mb-1">Starts From</span>
+      <span className="font-display font-black text-xl sm:text-2xl tracking-tighter leading-none">
         {price}
       </span>
     </div>
@@ -235,7 +235,7 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
             transform: "translateZ(60px)",
             filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))"
           }}
-          className="absolute -top-6 -left-6 z-30 pointer-events-none"
+          className="absolute -top-4 -left-2 sm:-top-6 sm:-left-6 z-30 pointer-events-none"
         >
           <PriceTag price={item.price} />
         </div>
