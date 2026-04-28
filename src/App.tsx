@@ -527,28 +527,6 @@ const MenuModal = ({ item, onClose }: { item: any, onClose: () => void }) => {
                 </div>
               </div>
 
-              <div>
-                <h4 className="text-[11px] font-black uppercase tracking-[0.3em] text-black/20 mb-4 flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-brand-red" />
-                  Perfect Pairing
-                </h4>
-                <div className="flex items-center gap-5 bg-brand-red/[0.03] p-5 rounded-[24px] border border-brand-red/5 hover:bg-brand-red/[0.06] transition-colors cursor-default group/pair">
-                  <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-xl shrink-0">
-                    <img
-                      src="https://picsum.photos/seed/pastry/400/400"
-                      alt="Pairing"
-                      className="w-full h-full object-cover group-hover/pair:scale-110 transition-transform duration-500"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-display font-black text-brand-red text-sm uppercase tracking-wider mb-1">Butter Croissant</p>
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] bg-brand-red/10 text-brand-red px-2 py-0.5 rounded font-black">+ RP 15.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
