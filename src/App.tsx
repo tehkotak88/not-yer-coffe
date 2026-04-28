@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "motion/react";
 import { Coffee, Instagram, MapPin, Clock, Star, Zap, X, Home, Info, Phone, Menu as MenuIcon, MessageCircle } from "lucide-react";
 
 const MENU_DATA = {
@@ -123,6 +123,32 @@ const BestSellerSign = () => (
 );
 
 const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: string | number }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -132,30 +158,62 @@ const MenuItem = ({ item, onClick }: { item: any, onClick: () => void, key?: str
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      whileHover={{ y: -8 }}
-      whileFocus={{ y: -8, outline: "none" }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      onClick={onClick}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-      className="relative flex flex-col items-center group mb-20 px-8 cursor-pointer focus:outline-none focus:ring-4 focus:ring-white/20 rounded-[40px]"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      style={{ perspective: 1000 }}
+      className="relative flex flex-col items-center group mb-20 px-4"
     >
-      <div className="relative w-full max-w-[280px] aspect-[4/5] mb-6">
-        <PriceTag price={item.price} />
-        {item.best && <BestSellerSign />}
+      <motion.div
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onClick={onClick}
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
+        className="relative w-full max-w-[300px] aspect-[4/5] cursor-pointer focus:outline-none rounded-[48px]"
+      >
+        <div 
+          style={{ transform: "translateZ(50px)" }}
+          className="absolute -top-6 -left-6 z-30 pointer-events-none"
+        >
+          <PriceTag price={item.price} />
+        </div>
+        
+        {item.best && (
+          <div 
+            style={{ transform: "translateZ(40px)" }}
+            className="absolute -bottom-6 -right-6 z-30 pointer-events-none"
+          >
+            <BestSellerSign />
+          </div>
+        )}
 
-        <div className="w-full h-full rounded-[40px] overflow-hidden bg-white shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-focus:scale-105 group-hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)]">
-          <div className="absolute inset-0 gloss-effect z-10 pointer-events-none opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500" />
+        <div className="w-full h-full rounded-[48px] overflow-hidden bg-white shadow-[0_30px_60px_rgba(0,0,0,0.3)] group-hover:shadow-[0_50px_100px_rgba(0,0,0,0.5)] transition-shadow duration-500 relative">
+          {/* Glare effect */}
+          <motion.div 
+            style={{
+              background: useTransform(
+                [mouseXSpring, mouseYSpring],
+                ([mx, my]) => `radial-gradient(circle at ${((mx as number) + 0.5) * 100}% ${((my as number) + 0.5) * 100}%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%)`
+              ),
+              zIndex: 20
+            }}
+            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+          />
+          
           <img
             src={item.image}
             alt={item.name}
-            className="w-full h-full object-cover transition-all duration-700"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             referrerPolicy="no-referrer"
           />
         </div>
-      </div>
+      </motion.div>
 
       <motion.div
         className="text-center w-full"
